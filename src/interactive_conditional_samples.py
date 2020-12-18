@@ -77,7 +77,7 @@ def interact_model(
             out = sess.run(output, feed_dict={
                 context: [context_tokens for _ in range(batch_size)]
             })[:, len(context_tokens):]
-            text=enc.decode(out[0])
+            text='{{{'+enc.decode(out[0])+'}}}'
             return text
 
 if __name__ == '__main__':
