@@ -70,7 +70,7 @@ def interact_model(
         ckpt = tf.train.latest_checkpoint(os.path.join(models_dir, model_name))
         saver.restore(sess, ckpt)
         raw_text=sys.argv[2]
-        context_tokens = raw_text
+        context_tokens = enc.encode(raw_text)
         generated = 0
         for _ in range(nsamples // batch_size):
             out = sess.run(output, feed_dict={
