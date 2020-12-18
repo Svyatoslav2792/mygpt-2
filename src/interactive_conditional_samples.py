@@ -11,6 +11,7 @@ import model, sample, encoder
 
 def interact_model(
     model_name='124M',
+    raw_text='invest',
     seed=None,
     nsamples=1,
     batch_size=1,
