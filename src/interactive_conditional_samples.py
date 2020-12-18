@@ -78,7 +78,7 @@ def interact_model(
                 context: [context_tokens for _ in range(batch_size)]
             })[:, len(context_tokens):]
             text=enc.decode(out[0])
-            print(text)
+            return text
 
 if __name__ == '__main__':
     fire.Fire(interact_model)
