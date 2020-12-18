@@ -77,12 +77,7 @@ def interact_model(
             out = sess.run(output, feed_dict={
                 context: [context_tokens for _ in range(batch_size)]
             })[:, len(context_tokens):]
-            for i in range(batch_size):
-                generated += 1
-                text = enc.decode(out[i])
-                print("=" * 40 + " SAMPLE " + str(generated) + " " + "=" * 40)
-                print(text)
-        print("=" * 80)
+            print(out[0])
 
 if __name__ == '__main__':
     fire.Fire(interact_model)
