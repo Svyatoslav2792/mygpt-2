@@ -3,10 +3,9 @@
 import fire
 import json
 import os
-import sys
 import numpy as np
 import tensorflow as tf
-
+import sys
 import model, sample, encoder
 
 
@@ -70,15 +69,21 @@ def interact_model(
         saver = tf.train.Saver()
         ckpt = tf.train.latest_checkpoint(os.path.join(models_dir, model_name))
         saver.restore(sess, ckpt)
-
         raw_text = sys.argv[1]
+
         context_tokens = enc.encode(raw_text)
         generated = 0
         for _ in range(nsamples // batch_size):
             out = sess.run(output, feed_dict={
                 context: [context_tokens for _ in range(batch_size)]
             })[:, len(context_tokens):]
-        return out
+            for i in range(batch_size):
+                generated += 1
+                text = enc.decode(out[i])
+                print("=" * 40 + " SAMPLE " + str(generated) + " " + "=" * 40)
+                print(text)
+        print("=" * 80)
+
 
 if __name__ == '__main__':
     fire.Fire(interact_model)
