@@ -8,7 +8,7 @@ import tensorflow as tf
 import sys
 import model, sample, encoder
 
-print(raw_text=sys.argv[2])
+print(sys.argv[2])
 # def interact_model(
 #     model_name='124M',
 #     seed=None,
