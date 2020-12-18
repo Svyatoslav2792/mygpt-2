@@ -14,7 +14,7 @@ def interact_model(
     raw_text='invest',
     seed=None,
     nsamples=1,
-    batch_size=3,
+    batch_size=1,
     length=None,
     temperature=1,
     top_k=0,
