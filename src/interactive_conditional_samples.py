@@ -68,7 +68,7 @@ def interact_model(
         saver = tf.train.Saver()
         ckpt = tf.train.latest_checkpoint(os.path.join(models_dir, model_name))
         saver.restore(sess, ckpt)
-
+        file = open("generated.txt", "w")
         while True:
             raw_text = input("Model prompt >>> ")
             while not raw_text:
@@ -83,10 +83,11 @@ def interact_model(
                 for i in range(batch_size):
                     generated += 1
                     text = enc.decode(out[i])
-                    print(text, file='generated.txt') 
+                    file.write(text+"\n")
+#                     print(text, file='generated.txt') 
 #                     print("=" * 40 + " SAMPLE " + str(generated) + " " + "=" * 40)
 #                     print(text)
             print("=" * 80)
-
+        file.close()
 if __name__ == '__main__':
     fire.Fire(interact_model)
