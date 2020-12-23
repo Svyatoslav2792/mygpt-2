@@ -11,7 +11,7 @@ import model, sample, encoder
 def interact_model(
     model_name='124M',
     seed=None,
-    nsamples=5,
+    nsamples=1000,
     batch_size=1,
     length=None,
     temperature=1,
@@ -84,6 +84,7 @@ def interact_model(
                     generated += 1
                     text = enc.decode(out[i])
                     file.write(text+"\n")
+                    print(i)
         file.close()
 if __name__ == '__main__':
     fire.Fire(interact_model)
