@@ -11,7 +11,7 @@ import model, sample, encoder
 def interact_model(
     model_name='124M',
     seed=None,
-    nsamples=1000,
+    nsamples=1,
     batch_size=1,
     length=None,
     temperature=1,
@@ -83,8 +83,9 @@ def interact_model(
                 for i in range(batch_size):
                     generated += 1
                     text = enc.decode(out[i])
-                    print("=" * 40 + " SAMPLE " + str(generated) + " " + "=" * 40)
-                    print(text)
+                    print(text, file='generated.txt) 
+#                     print("=" * 40 + " SAMPLE " + str(generated) + " " + "=" * 40)
+#                     print(text)
             print("=" * 80)
 
 if __name__ == '__main__':
