@@ -84,10 +84,6 @@ def interact_model(
                     generated += 1
                     text = enc.decode(out[i])
                     file.write(text+"\n")
-#                     print(text, file='generated.txt') 
-#                     print("=" * 40 + " SAMPLE " + str(generated) + " " + "=" * 40)
-#                     print(text)
-            print("=" * 80)
         file.close()
 if __name__ == '__main__':
     fire.Fire(interact_model)
