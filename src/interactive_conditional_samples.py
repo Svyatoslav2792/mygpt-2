@@ -11,7 +11,7 @@ import model, sample, encoder
 
 def interact_model(
     model_name='124M',
-    raw_text='An investment is an asset or item acquired with the goal of generating income or appreciation. Appreciation refers to an increase in the value of an asset over time. When an individual purchases a good as an investment',
+    raw_text="An investment is an asset or item acquired with the goal of generating income or appreciation. Appreciation refers to an increase in the value of an asset over time. When an individual purchases a good as an investment",
     seed=None,
     nsamples=1,
     batch_size=1,
