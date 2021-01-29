@@ -85,7 +85,7 @@ def interact_model(
                     generated += 1
                     text = enc.decode(out[i])
                     file.write(text+"\n")
-                    print(generated)
+                    print(generated, flush=True)
         file.close()
 if __name__ == '__main__':
     fire.Fire(interact_model)
