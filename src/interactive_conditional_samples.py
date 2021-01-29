@@ -68,7 +68,8 @@ def interact_model(
         saver = tf.train.Saver()
         ckpt = tf.train.latest_checkpoint(os.path.join(models_dir, model_name))
         saver.restore(sess, ckpt)
-        file = open("generated.txt", "w")
+        # file = open("generated.txt", "w")
+        file = open('generated.txt', 'w', encoding='utf-8')
         while True:
             raw_text = input("Model prompt >>> ")
             while not raw_text:
